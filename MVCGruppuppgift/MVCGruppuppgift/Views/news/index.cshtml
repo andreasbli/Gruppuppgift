@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCGruppuppgift.Models.news>
+
+@{
+    ViewBag.Title = "Index";
+}
+<table id="editNewsSectionInfo">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.program.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.information)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        @Html.ActionLink("Tillbaka", "AdminPage", "Home")
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.program.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.information)
+            </td>
+            <td>
+                @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Ta bort", "Delete", new { id = item.Id }) <br />
+            </td>
+        </tr>
+
+    }
+
+</table>

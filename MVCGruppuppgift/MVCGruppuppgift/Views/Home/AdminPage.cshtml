@@ -1,0 +1,24 @@
+﻿@model MVCGruppuppgift.Models.news
+@{
+    ViewBag.Title = "Adminpage";
+}
+
+<div id="adminNewsSection">
+    <h3>Lägga till nyheter:</h3>
+    @using (Html.BeginForm("AdminPage", "Home", FormMethod.Post))
+    {
+        @Html.LabelFor(model => model.programid)<br />
+        @Html.DropDownListFor(x => x.programid, new SelectList(ViewBag.programList, "Value", "Text"))<br />
+        <br />
+        @Html.LabelFor(model => model.information)<br />
+        @Html.TextAreaFor(model => model.information)<br /><br />
+
+        <input id="addNewsButton" type="submit" id="btnadminPage" value="Insert" />
+    }
+
+    <h1>Eller</h1>
+    <div>
+        <input id="editNewsButton" type="button" value="Redigera" onclick="location.href='@Url.Action("Index", "news")'" />
+
+    </div>
+</div>

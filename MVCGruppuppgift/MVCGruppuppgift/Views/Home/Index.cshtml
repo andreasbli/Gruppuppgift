@@ -1,0 +1,431 @@
+﻿@model IEnumerable<MVCGruppuppgift.Models.program>
+@{
+    ViewBag.Title = "Index";
+}
+<div id="newsSection">
+    @foreach (var news in ViewBag.newslist)
+    {
+        <div id="news">
+            @foreach (var p in Model)
+            {
+                if (news.programid == p.programid)
+                {
+                    <h1>@Html.ActionLink(p.name, "newsinfo", new { Id = p.programid }) </h1>
+                    <h3>@news.information</h3>
+                    <p>@p.date.Value.ToString("yyyy-MM-dd") - @p.time_from</p>
+                }
+            }
+        </div>
+    }
+</div>
+<div id="genreSearchSection">
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownList("GenreSearch", new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Alla", Value = ""},
+            new SelectListItem {Text = "Nyheter" },
+            new SelectListItem {Text = "Reality" },
+            new SelectListItem {Text = "Kriminal" },
+            new SelectListItem {Text = "Väder" },
+            new SelectListItem {Text = "Sci-fi" },
+            new SelectListItem {Text = "Sport" },
+            new SelectListItem {Text = "Drama" },
+            new SelectListItem {Text = "Debatt" }
+        })
+        <input id="searchGenreButton" type="submit" value="Sök genre" />
+    }
+</div>
+<div class="channels">
+    @{ var dateToday = DateTime.Now.Date;
+    }
+    <button class="tablink" onclick="openTab('Idag', this, ' #999999')" id="defaultOpen">Idag @DateTime.Now.Date.ToString("dd/MM")</button>
+    <button class="tablink" onclick="openTab('Imorgon', this, ' #999999')">Imorgon @dateToday.AddDays(1).ToString("dd/MM")</button>
+    <button class="tablink" onclick="openTab('n1', this, ' #999999')">@dateToday.AddDays(2).ToString("dd/MM")</button>
+    <button class="tablink" onclick="openTab('n2', this, ' #999999')">@dateToday.AddDays(3).ToString("dd/MM")</button>
+    <button class="tablink" onclick="openTab('n3', this, ' #999999')">@dateToday.AddDays(4).ToString("dd/MM")</button>
+    <button class="tablink" onclick="openTab('n4', this, ' #999999')">@dateToday.AddDays(5).ToString("dd/MM")</button>
+    <button class="tablink" onclick="openTab('n5', this, ' #999999')">@dateToday.AddDays(6).ToString("dd/MM")</button>
+    <div id="Idag" class="tabcontent">
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date == dateToday && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="Imorgon" class="tabcontent">
+        <ul id="programs">
+
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(1) && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(1) && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(1) && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(1) && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(1) && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="n1" class="tabcontent">
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(2) && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(2) && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(2) && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(2) && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(2) && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="n2" class="tabcontent">
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(3) && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(3) && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(3) && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(3) && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(3) && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="n3" class="tabcontent">
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(4) && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(4) && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(4) && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(4) && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(4) && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="n4" class="tabcontent">
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(5) && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(5) && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(5) && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(5) && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(5) && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="n5" class="tabcontent">
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/Style/Images/SVT1.png")" alt="Ikon för SVT1 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(6) && @item.channel.name == "SVT1")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.svtplay.se/kanaler/svt2" src="@Url.Content("~/Style/Images/SVT2.png")" alt="Ikon för SVT2 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(6) && @item.channel.name == "SVT2")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv3" src="@Url.Content("~/Style/Images/TV3.png")" alt="Ikon för TV3 saknas" />
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(6) && @item.channel.name == "TV3")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="http://www.tv4.se/" src="@Url.Content("~/Style/Images/TV4.png")" alt="Ikon för TV4 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(6) && @item.channel.name == "TV4")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+        <ul id="programs">
+            <img href="https://www.viafree.se/program/?channel=tv6" src="@Url.Content("~/Style/Images/TV6.png")" alt="Ikon för TV6 saknas">
+            @foreach (var item in Model)
+            {
+                if (item.date.Value.Date == dateToday.AddDays(6) && @item.channel.name == "TV6")
+                {
+                    <li> @item.time_from @Html.ActionLink(item.name, "channelinfo", new { cID = item.FK_channelid }) </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+<script>
+    function openTab(Name,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(Name).style.display = "block";
+        elmnt.style.backgroundColor = color;
+
+    }
+    document.getElementById("defaultOpen").click();
+</script>

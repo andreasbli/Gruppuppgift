@@ -1,0 +1,100 @@
+﻿body {    
+    padding-top: 10%;
+    background: #dcd0c0;
+    font: 13px/14px Verdana, Sans-Serif;
+    color: #555;   
+}
+.channels {
+    margin-top: 150px;
+    color: black;
+    width: 120%;
+}
+#svt1 {
+    border: 1px solid #333333;
+    background-color: #999999;
+    opacity: 0.9;
+    padding-left: 1px;
+}
+
+#svt2 {
+    border: 1px solid #333333;
+    background-color: #999999;
+    opacity: 0.9;
+    padding-left: 1px;
+}
+
+#tv4 {
+    border: 1px solid #333333;
+    background-color: #999999;
+    opacity: 0.9;
+    padding-left: 1px;
+}
+
+#tv6 {
+    border: 1px solid #333333;
+    background-color: #999999;
+    opacity: 0.9;
+    padding-left: 1px;
+    margin-bottom: 500px;
+}
+li {
+    list-style: none;
+}
+h1 {
+    text-align: center;
+}
+footer {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #4d4d4d;
+    color: white;
+}
+#social {
+    text-align: center;
+}
+.header {
+    background: #404040;
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0.8;    
+}
+.navbar {
+    float: right;
+    padding: 15px 20px 20px 0;
+}
+.navbar li {
+    font-size: 17px;    
+    display: inline-block;
+    float: left;
+    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+a {
+    color: white;
+}
+a:visited {
+    text-decoration: none;    
+}
+
+a:hover {
+    text-decoration: none;    
+}
+
+a:focus {
+    text-decoration: none;    
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+

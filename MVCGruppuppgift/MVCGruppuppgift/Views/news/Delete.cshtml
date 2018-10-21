@@ -1,0 +1,35 @@
+﻿@model MVCGruppuppgift.Models.news
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div id="deleteNewsSection">
+    <h3>Är du säker på att du vill ta bort nyhetspuffen?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.information):
+        </dt>
+
+        <dt>
+            @Html.DisplayFor(model => model.information)
+        </dt>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.program.name):
+        </dt>
+
+        <dt>
+            @Html.DisplayFor(model => model.program.name)
+        </dt>
+        <br />
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input id="deleteNewsButton" type="submit" value="Ta bort" class="btn btn-default" /> <br />
+            @Html.ActionLink("Tillbaka", "Index")
+        </div>
+    }
+</div>
