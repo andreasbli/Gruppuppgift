@@ -3,10 +3,9 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - Andreas & Erik MVC</title>
     <meta name="viewport" content="width-device-width, initial scale=1.0">
-    <link href="~/Style/StyleSheet.css" rel="stylesheet" />
-    @RenderSection("Styles", false)
+    <title>@ViewBag.Title - Andreas & Erik MVC</title>
+    @Styles.Render("~/Content/css")
 </head>
 <body>
     <header>
@@ -44,40 +43,36 @@
             }
         </nav>
     </header>
+    @RenderBody()
     <footer class="firstFooter">
         <section id="aboutUs">
             <h3><strong>Om oss</strong></h3>
             <p>Hardcoretv.se är sveriges bästa TV sida.</p>
             <p>Hos oss hittar du helt enkelt allt som är aktuellt på inom TV!.</p>
         </section>
+        <section id="Icons">
+            <h3><strong>Våran Sociala Media:</strong></h3>
+            <div class="social">
+                <a href="https://www.facebook.com">
+                    <img border="0" alt="facebook" src="~/img/facebook.png">
+                </a>
+                <a href="https://www.youtube.com">
+                    <img border="0" alt="youtube" src="~/img/youtube.png">
+                </a>
+                <a href="https://www.twitter.com">
+                    <img border="0" alt="twitter" src="~/img/twitter.png">
+                </a>
+            </div>
+        </section>
         <section id="contact">
             <h3><strong>Kontakt</strong></h3>
             <p>Adress : Stureplanshänget 123</p>
             <p> Telefon: 07013371337</p>
             <p> E-post: Andreas@gmail.com</p>
-        </section>
-        <section id="Icons">
-            <h3><strong>Du kan även följa oss på följande sidor:</strong></h3>
-            <div class="socialIcon1">
-                <img class="facebook"><a href="http://www.facebook.com">
-                    <img src="@Url.Content("~/Style/Images/facebook.png")" alt="Ikon för Facebook saknas" />
-                    <p class="descFacebook">Facebook!</p>
-            </div>
-            <div class="socialIcon2">
-                <img id="instagram"><a href="https://www.instagram.com/">
-                    <img src="@Url.Content("~/Style/Images/instagram.png")" alt="Ikon för Instagram saknas" />
-                    <p class="descInstagram">Instagram!</p>
-            </div>
-            <div class="socialIcon3">
-                <img id="twitter"><a @*href="https://www.twitter.com/"*@>
-                    <img src="@Url.Content("~/Style/Images/twitter.png")" alt="Ikon för Twitter saknas" />
-                    <p class="descTwitter">Twitter!</p>
-            </div>
-        </section>
+        </section>       
     </footer>
     <footer class="secondFooter">
-        <p>&copy; Copyright - Hardcoretv.se 2018</p>
+        <p>&copy; Copyright - Hardcore TV @DateTime.Now.Year</p>
     </footer>
-    @RenderBody()
 </body>
 </html>
