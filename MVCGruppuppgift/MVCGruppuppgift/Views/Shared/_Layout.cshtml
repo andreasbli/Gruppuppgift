@@ -6,73 +6,25 @@
     <meta name="viewport" content="width-device-width, initial scale=1.0">
     <title>@ViewBag.Title - Andreas & Erik MVC</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*Fontawesome ikoner*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </head>
 <body>
-    <header>
-        <a href="/Home" id="logo"></a>
-        <nav id="header">
-            <a href="#" id="menu-icon"></a>
-            <ul class="tabs">
-                @if (Session["admin"] != null)
-                {
-                    <li>@Html.ActionLink("Tablå", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Min sida", "MyPage", "Home")</li>
-                    <li>@Html.ActionLink("Redigera nyhetspuffar", "AdminPage", "Home")</li>
-                    <li>@Html.ActionLink("Logga ut", "Logout", "Login")</li>
-                }
+    @*Nav bar render*@
+    @Html.Partial("_NavBar")
 
-                else if (Session["id"] != null)
-                {
-                    <li class="current">@Html.ActionLink("Hem", "Index", "Home")</li>
-                    <li class="current">@Html.ActionLink("Min Sida", "MyPage", "Home")</li>
-                    <li class="current">@Html.ActionLink("Logga Ut", "Logout", "Login")</li>
-                }
-                else
-                {
-                    <li class="current">@Html.ActionLink("Hem", "Index", "Home")</li>
-                    <li class="current">@Html.ActionLink("Registrera", "Register", "person")</li>
-                    <li class="current">@Html.ActionLink("Logga in", "Login", "Login")</li>
-                }
-            </ul>
-            @using (Html.BeginForm())
-            {
-                <p id="search">
-                    @Html.TextBox("SearchString")
-                    <input id="searchButton" type="submit" value="Sök" />
-                </p>
-            }
-        </nav>
-    </header>
-    @RenderBody()
-    <footer class="firstFooter">
-        <section id="aboutUs">
-            <h3><strong>Om oss</strong></h3>
-            <p>Hardcoretv.se är sveriges bästa TV sida.</p>
-            <p>Hos oss hittar du helt enkelt allt som är aktuellt på inom TV!.</p>
-        </section>
-        <section id="Icons">
-            <h3><strong>Våran Sociala Media:</strong></h3>
-            <div class="social">
-                <a href="https://www.facebook.com">
-                    <img border="0" alt="facebook" src="~/img/facebook.png">
-                </a>
-                <a href="https://www.youtube.com">
-                    <img border="0" alt="youtube" src="~/img/youtube.png">
-                </a>
-                <a href="https://www.twitter.com">
-                    <img border="0" alt="twitter" src="~/img/twitter.png">
-                </a>
-            </div>
-        </section>
-        <section id="contact">
-            <h3><strong>Kontakt</strong></h3>
-            <p>Adress : Stureplanshänget 123</p>
-            <p> Telefon: 07013371337</p>
-            <p> E-post: HardcoreTV@gmail.com</p>
-        </section>       
-    </footer>
-    <footer class="secondFooter">
-        <p>&copy; Copyright - Hardcore TV @DateTime.Now.Year</p>
-    </footer>
+    @*Body render*@
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <!-- footer render -->
+    @Html.Partial("_Footer")
+  
 </body>
 </html>

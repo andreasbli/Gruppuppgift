@@ -1,88 +1,50 @@
 ﻿body {
-    background: #f2f2f2;
-    font: 18px/20px Arial, Sans-Serif;
-    color: #000000;
-    margin-top: 15%;   
+    padding-top: 70px;
+    margin-top: 90px;
+    color: white;
+    letter-spacing: normal;
+    height: 100%;
+    background: #b3b3b3;       
 }
-/*Fixa header utseende och plasering av länkar*/
-header {
-    background: #737373;
-    width: 100%;
-    height: 13%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    opacity: 0.7;
+footer {
+    background: #0e0e0e;
+    padding-top: 30px;
+    color: #FFF;
+    margin-top: 100px;
+
 }
-#header {
-    float: right;
-    display: inline-block;
+footer h4, footer a {
+    color: white;
+
 }
-#logo {    
-    background: url("/img/icon.png") no-repeat center;
-    float: left;
-    width: 150px;
-    height: 150px;
-}
-.tabs {
-    float: right;
-    position: absolute;
-    right: 2%;
-    bottom: 1%;
-}
-ul {
-    list-style: none;
-    display: inline-block;
+footer a {
+    font-size: 20px;
 }
 
-nav ul li {
-    display: inline-block;
-    padding: 0,5%;
-}
 
-/*Tar bort länkarnas standard decoration*/
-a {
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
-}
-a:visited {
-        text-decoration: none;
-        color: black;
-}
 
-a:hover {
-    text-decoration: none;
-    color: blue;
-}
-/*footer och 2nd footer plaseringar och utseende*/
-.firstFooter {
-    background: #999999;
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-    position: fixed;
-    left: 0;
-    bottom: 3%;
-    opacity: 0.9;
+.footer-bottom {
+    padding: 4px 0;
+    border-top: thin solid;
+    border-top-color: #bfbfbf;
+    background-color: #24282b;
     text-align: center;
-    font-size: 13px;
-    display: inline-block
 }
-section {
-    width: 28%;
-    display: inline;
-    float: left;
-    margin: 2%;
+.footer-bottom p {
+    margin: 5px 0;
 }
-footer.secondFooter {
-    background: #737373;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    font-size: 10px;
-    border-top: 1px solid #000000;
-    text-align:center;
+.nav-item {
+    font-size: 17px;
+    opacity: 0.8;
+    margin-right: 30px;
+}
+.navbar-brand {
+    opacity: 0.5;
+    margin-right: 1.5rem;
+}
+hr {
+    border-color: white;
+}
+nav {
+    opacity: 0.6;
 }
