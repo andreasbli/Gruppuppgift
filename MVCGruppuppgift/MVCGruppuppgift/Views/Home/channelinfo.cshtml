@@ -29,21 +29,22 @@
         kanal = "TV6";
     }
 }
-<div id="newsSectionChannelinfo">
+<div class="col-12" id="selectChannelInfo">
 
     <h1>@kanal</h1>
+    <ul class="list-unstyled">
 
-    @foreach (var item in Model)
-    {
-
-        <div id="newsChannelinfo">
-            <p>
-                @item.date.Value.ToString("yyyy-MM-dd"),
-                @item.time_from,
-                @item.name,
+        @foreach (var item in Model)
+        {
+        <li>
+            @item.date.Value.ToString("yyyy-MM-dd"),
+            @item.time_from.Value.ToString(@"hh\:mm"),
+            @item.name
+        </li>
+            <li>                
                 @item.description
-            </p>
-        </div>
-    }
+            </li>
+        }
+        </ul>
 
 </div>

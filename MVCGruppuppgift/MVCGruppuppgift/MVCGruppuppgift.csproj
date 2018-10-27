@@ -213,6 +213,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\facebook.png" />
     <Content Include="img\icon.png" />
+    <Content Include="img\SVT1.png" />
+    <Content Include="img\SVT2.png" />
+    <Content Include="img\TV4.png" />
+    <Content Include="img\TV6.png" />
     <Content Include="img\twitter.png" />
     <Content Include="img\youtube.png" />
     <Content Include="Models\Modeltv.Context.tt">

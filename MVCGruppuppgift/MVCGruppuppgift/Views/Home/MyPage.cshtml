@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Min Sida";
 }
-<div class="AddChannels">
-    <input id="favoriteChannelButton" type="button" value="Lägg till favorit kanal" onclick="location.href='@Url.Action("chanlist", "Home")'" />
+<div class="addChannel">
+    <input class="btn btn-primary" id="favoriteChannelButton" type="button" value="Lägg till favorit kanal" onclick="location.href='@Url.Action("chanlist", "Home")'" />
 
 </div>
 <div class="favoriteChannels">
@@ -36,7 +36,7 @@
                 if (channel == program.FK_channelid)
                 {
 
-                    <ul class="programs">
+                    <ul class="programs list-unstyled row">
                         <li>
                             <b><a>@program.time_from @program.name</a></b>
                         </li>

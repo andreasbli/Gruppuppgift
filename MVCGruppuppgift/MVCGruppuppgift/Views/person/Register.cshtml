@@ -6,8 +6,9 @@
 {
     @Html.AntiForgeryToken()
 
-    <section id="registerSection">
+    <div id="registerSection">
         <h4>Registrera dig</h4>
+        <p>Här kan du registrera dig för att logga in på våran hemsida och få tillgång till att välja egna kanaler.</p>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -33,8 +34,8 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Registrera" id="registerButton" />
+                <input class="btn btn-primary" type="submit" value="Registrera" id="registerButton" />
             </div>
         </div>
-    </section>
+    </div>
 }
