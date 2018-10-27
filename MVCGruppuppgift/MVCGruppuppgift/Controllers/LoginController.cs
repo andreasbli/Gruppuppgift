@@ -27,7 +27,7 @@ namespace MVCGruppuppgift.Controllers
                 Session["id"] = Usr.personid;
                 Session["email"] = Usr.email;
                 Session["admin"] = Usr.role;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MyPage", "Home");
             }
         }
 
@@ -35,7 +35,7 @@ namespace MVCGruppuppgift.Controllers
         {
             int UsrId = (int)Session["id"];
             Session.Abandon();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
