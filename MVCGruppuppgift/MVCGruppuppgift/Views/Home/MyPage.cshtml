@@ -9,46 +9,46 @@
 <div class="favoriteChannels">
     @foreach (int channel in ViewBag.favoritelist)
     {
-        <div class="channel">
+    <div class="channel">
 
-            @if (channel == 1)
+    @if (channel == 1)
+    {
+        <h3 class="channels">SVT1</h3>        
+    }
+    else if (channel == 2)
+    {
+        <h3 class="channels">SVT2</h3>
+    }
+        else if (channel == 3)
+    {
+         <h3 class="channels">TV3</h3>
+     }
+     else if (channel == 4)
+     {
+     <h3 class="channels">TV4</h3>
+    }
+    else if (channel == 5)
+    {
+        <h3 class="channels">TV6</h3>        
+    }
+        @foreach (var program in Model)
+        {
+            if (channel == program.FK_channelid)
             {
-                <h3 class="channels">SVT1</h3>
-            }
-            else if (channel == 2)
-            {
-                <h3 class="channels">SVT2</h3>
-            }
-            else if (channel == 3)
-            {
-                <h3 class="channels">TV3</h3>
-            }
-            else if (channel == 4)
-            {
-                <h3 class="channels">TV4</h3>
-            }
-            else if (channel == 5)
-            {
-                <h3 class="channels">TV6</h3>
-            }
-            @foreach (var program in Model)
-            {
-                if (channel == program.FK_channelid)
-                {
 
-                    <ul class="programs list-unstyled row">
-                        <li>
-                            <b><a>@program.time_from @program.name</a></b>
-                        </li>
+            <ul class="programs list-unstyled row">
+                <li>
+                    <b><a>@program.time_from @program.name</a></b>
+                </li>
 
-                    </ul>
+            </ul>
 
-                }
-            }
+    }
+}
 
 
 
-        </div>
+    </div>
 
     }
 </div>

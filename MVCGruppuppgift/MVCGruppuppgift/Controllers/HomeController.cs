@@ -40,6 +40,7 @@ namespace MVCGruppuppgift.Controllers
             }
             return RedirectToAction("Index");
         }
+        
         [HttpGet]
         public ActionResult chanlist()
         {

@@ -13,12 +13,12 @@
         @Html.LabelFor(model => model.information)<br />
         @Html.TextAreaFor(model => model.information)<br /><br />
 
-        <input id="addNewsButton" type="submit" id="btnadminPage" value="Insert" />
-    }
-
-    <h1>Eller</h1>
-    <div>
-        <input id="editNewsButton" type="button" value="Redigera" onclick="location.href='@Url.Action("Index", "news")'" />
-
-    </div>
+        <input class="btn btn-primary" type="submit" id="btnadminPage" value="Lägg till" />
+    }    
+        <div>
+            <hr>
+            <h3>Redigera och ta bort aktiva puffar</h3>
+            <br />
+            <input class="btn btn-primary" type="button" value="Redigera puffar" onclick="location.href='@Url.Action("Index", "news")'" />
+        </div>
 </div>
