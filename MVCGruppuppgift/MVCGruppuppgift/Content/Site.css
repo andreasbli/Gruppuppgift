@@ -6,8 +6,9 @@
     height: 100%;
     background: #b3b3b3;    
 }
+/*Design för footern*/
 footer {
-    position:absolute;
+    position:relative;
     background: #1e1c1c;
     padding-top: 30px;
     color: #FFF;
@@ -30,6 +31,7 @@ footer a {
 .footer-bottom p {
     margin: 5px 0;
 }
+/*Design för navbar*/
 .nav-item {
     font-size: 17px;
     opacity: 0.8;
@@ -112,6 +114,7 @@ img {
     max-width: 50px;
     max-height: 40px;    
 }
+/*skriver över bootstrap css*/
 .channels {
     padding-right: 0px;
     padding-left: 0px;
@@ -135,12 +138,35 @@ img {
     color: black;
 }
 #main-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
-    right: 0px;
+    width: 100%;
 }
 
 .addChannel{
     padding-bottom: 20px;
+}
+@media only screen and (max-width: 950px) {
+    #footerTop {
+        display: none;
+    }
+    .tablink {
+        font-size: 8px;
+
+    }
+    #newsSection h1 {
+        font-size: 12px;
+    }
+    #news {
+        padding-left: 0px;
+        padding-right: 0px;
+        
+    }
+    #newsSection h2 {
+        font-size: 10px;
+    }
+    #newsSection h3, p {
+        font-size: 10px;
+    }  
 }

@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "Adminpage";
 }
+@*Sida för att hantera nyhetspuffar*@
 
 <div id="adminNewsSection">
     <h3>Lägga till nyheter:</h3>
+    @*lägga till nyhetspuffar*@
     @using (Html.BeginForm("AdminPage", "Home", FormMethod.Post))
     {
         @Html.LabelFor(model => model.programid)<br />
@@ -17,6 +19,7 @@
     }    
         <div>
             <hr>
+            @*Redigera nyhetspuffar*@
             <h3>Redigera och ta bort aktiva puffar</h3>
             <br />
             <input class="btn btn-primary" type="button" value="Redigera puffar" onclick="location.href='@Url.Action("Index", "news")'" />

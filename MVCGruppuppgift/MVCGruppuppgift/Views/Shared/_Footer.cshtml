@@ -1,6 +1,8 @@
-﻿<footer id="main-footer">
-    <div class="container">
+﻿@*Partial view som renderas i layout for footer*@
+<footer id="main-footer">
+    <div class="container" id="footerTop">
         <div class="row text-center">
+            @*Div med all kontaktinfo*@
             <div class="col-md-4 text-center">
                 <h4>Kontakt</h4>
                 <hr />
@@ -10,7 +12,7 @@
                     <li>E-post: HardcoreTV@gmail.com</li>
                 </ul>
             </div>
-
+            @*Div med social media ikoner*@
             <div class="col-md-4 social-media-links text-center text-white">
                 <h4>Våra Sociala Medier</h4>
                 <hr />
@@ -18,7 +20,7 @@
                 <a id="youtube" href="https://www.youtube.com" target="_blank" title="Youtube"><i class="fab fa-youtube fa-2x"></i></a>
                 <a id="twitter" href="https://www.twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
             </div>
-
+            @*Lite info om harcoreTV*@
             <div class="col-md-4 text-center">
                 <h4>Om Oss</h4>
                 <hr />
@@ -29,6 +31,7 @@
             </div>
         </div>
     </div>
+    @*en till separat footer som lägger sig längs ner med datum*@
     <div class="footer-bottom">
         <div class="container">
             <p>©@DateTime.Now.Year - Hardcore TV</p>

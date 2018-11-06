@@ -11,7 +11,8 @@ namespace MVCGruppuppgift.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace MVCGruppuppgift.Models
         public int personid { get; set; }
         public string name { get; set; }
         public string email { get; set; }
+        [DataType(DataType.Password)]
         public string password { get; set; }
         public string role { get; set; }
         public Nullable<int> SVT1 { get; set; }
