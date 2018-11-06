@@ -33,13 +33,13 @@
         <div>
             <p>
                 <h2>Information om programmet</h2>
-                @item.name,
-                @item.description @kanalinfo
-                @kanal <br />
+                <hr />
+                <h2><u>@item.name</u></h2>
+            <h4>@item.description, Visas på: @kanal</h4>
                 @item.date.Value.ToString("yyyy-MM-dd")
                 Kl. @item.time_from
             </p>
         </div>
     }
-    @Html.ActionLink("Tillbaka", "Index", "Home")
+    @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-primary btn-large" })
 </div>
