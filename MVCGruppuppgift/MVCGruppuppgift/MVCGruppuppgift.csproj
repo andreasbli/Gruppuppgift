@@ -292,7 +292,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\news\index.cshtml" />
@@ -310,7 +309,6 @@
     <Content Include="Views\person\Delete.cshtml" />
     <Content Include="Views\Home\MyPage.cshtml" />
     <Content Include="Views\Home\chanlist.cshtml" />
-    <Content Include="Views\Home\addfavorite.cshtml" />
     <Content Include="Views\Home\AdminPage.cshtml" />
     <Content Include="Views\Home\newsinfo.cshtml" />
     <Content Include="Views\Home\channelinfo.cshtml" />

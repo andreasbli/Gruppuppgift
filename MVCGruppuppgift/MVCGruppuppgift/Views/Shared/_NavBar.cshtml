@@ -1,14 +1,18 @@
-﻿<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+﻿@*Partial view som renderas i layout för navbar*@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    @*Ikon för hemsidan*@
     <div class="navbar-header vertical-line">
         <a title="Till startsidan" class="navbar-brand" href="@Url.Action("Index", "Home")">
             <span><img class="mr-2" height="50" width="50" src="~/img/icon.png" />Hardcore TV</span>
         </a>
     </div>
+    @*Colapsing navbar med hamburgermeny*@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
+            @*Ger vissa vissa länkar om man är inloggad och admin. Hem, Min sida, Adminsida som är för att redigera puggar och logga ut*@
             @if (Session["admin"] != null)
             {
                 <li class="nav-item">
@@ -23,31 +27,33 @@
                 <li class="nav-item">
                     <a title="Logga ut" class="nav-link" href="@Url.Action("Logout", "Login")"><i class="fas fa-sign-in-alt"></i>Logga ut</a>
                 </li>
-        
-               }
+
+            }
+            @*Ger vissa länkar om man är inloggad användare. Hem, Min sida, och logga ut*@
             else if (Session["id"] != null)
             {
                 <li class="nav-item">
                     <a title="Hem" class="nav-link" href="@Url.Action("Index", "Home")"><i class="fas fa-home"></i>Hem</a>
                 </li>
-            <li class="nav-item">
-                <a title="Min Sida" class="nav-link" href="@Url.Action("MyPage", "Home")"><i class="fas fa-newspaper"></i>Min Sida</a>
-            </li>
-            <li class="nav-item">
-                <a title="Logga ut" class="nav-link" href="@Url.Action("Logout", "Login")"><i class="fas fa-sign-in-alt"></i>Logga ut</a>
-            </li>
+                <li class="nav-item">
+                    <a title="Min Sida" class="nav-link" href="@Url.Action("MyPage", "Home")"><i class="fas fa-newspaper"></i>Min Sida</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Logga ut" class="nav-link" href="@Url.Action("Logout", "Login")"><i class="fas fa-sign-in-alt"></i>Logga ut</a>
+                </li>
             }
+            @*Om man inte är inloggad så får man vissa val. Hem, Registrera och Logga in*@
             else
             {
                 <li class="nav-item">
                     <a title="Hem" class="nav-link" href="@Url.Action("Index", "Home")"><i class="fas fa-home"></i>Hem</a>
                 </li>
-            <li class="nav-item">
-                <a title="Registrera" class="nav-link" href="@Url.Action("Register", "person")"><i class="fas fa-pen"></i>Registrera</a>
-            </li>
-            <li class="nav-item">
-                <a title="Logga in" class="nav-link" href="@Url.Action("Login", "Login")"><i class="fas fa-sign-in-alt"></i>Logga in</a>
-            </li>
+                <li class="nav-item">
+                    <a title="Registrera" class="nav-link" href="@Url.Action("Register", "person")"><i class="fas fa-pen"></i>Registrera</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Logga in" class="nav-link" href="@Url.Action("Login", "Login")"><i class="fas fa-sign-in-alt"></i>Logga in</a>
+                </li>
             }
         </ul>        
     </div>

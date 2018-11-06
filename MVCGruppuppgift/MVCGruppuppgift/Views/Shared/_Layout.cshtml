@@ -7,23 +7,24 @@
     <title>@ViewBag.Title - Andreas & Erik MVC</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @*Fontawesome ikoner*@
+    @*Link för Fontawesome ikoner*@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
+    @*Läser in scripts länkade i bundles*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </head>
 <body>
-    @*Nav bar render*@
+    @*Renderar navbaren från en partial view*@
     @Html.Partial("_NavBar")
 
-    @*Body render*@
+    @*Renderar body beroende på sida man är inne på*@
     <div class="container body-content">
         @RenderBody()
     </div>
 
-    <!-- footer render -->
+    @*Renderar footer från en partial view*@
     @Html.Partial("_Footer")
   
 </body>

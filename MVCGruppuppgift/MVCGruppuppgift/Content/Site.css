@@ -6,6 +6,7 @@
     height: 100%;
     background: #b3b3b3;    
 }
+/*Design för footern*/
 footer {
     position:absolute;
     background: #1e1c1c;
@@ -30,6 +31,7 @@ footer a {
 .footer-bottom p {
     margin: 5px 0;
 }
+/*Design för navbar*/
 .nav-item {
     font-size: 17px;
     opacity: 0.8;
@@ -112,6 +114,7 @@ img {
     max-width: 50px;
     max-height: 40px;    
 }
+/*skriver över bootstrap css*/
 .channels {
     padding-right: 0px;
     padding-left: 0px;
