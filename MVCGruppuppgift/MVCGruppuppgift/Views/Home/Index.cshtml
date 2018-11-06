@@ -26,13 +26,13 @@
         @{ var dateToday = DateTime.Now.Date;
         }
         @*Knappar för de olika dagarna*@
-        <button class="tablink" onclick="openTab('d1', this, ' #999999')" id="defaultOpen">@DateTime.Now.Date.ToString("dd/MM")</button>
-        <button class="tablink" onclick="openTab('d2', this, ' #999999')">@dateToday.AddDays(1).ToString("dd/MM")</button>
-        <button class="tablink" onclick="openTab('d3', this, ' #999999')">@dateToday.AddDays(2).ToString("dd/MM")</button>
-        <button class="tablink" onclick="openTab('d4', this, ' #999999')">@dateToday.AddDays(3).ToString("dd/MM")</button>
-        <button class="tablink" onclick="openTab('d5', this, ' #999999')">@dateToday.AddDays(4).ToString("dd/MM")</button>
-        <button class="tablink" onclick="openTab('d6', this, ' #999999')">@dateToday.AddDays(5).ToString("dd/MM")</button>
-        <button class="tablink" onclick="openTab('d7', this, ' #999999')">@dateToday.AddDays(6).ToString("dd/MM")</button>
+        <button class="tablink" onclick="openTab('d1', this, ' #999999')" id="defaultOpen">@DateTime.Now.Date.ToString("MM/dd")</button>
+        <button class="tablink" onclick="openTab('d2', this, ' #999999')">@dateToday.AddDays(1).ToString("MM/dd")</button>
+        <button class="tablink" onclick="openTab('d3', this, ' #999999')">@dateToday.AddDays(2).ToString("MM/dd")</button>
+        <button class="tablink" onclick="openTab('d4', this, ' #999999')">@dateToday.AddDays(3).ToString("MM/dd")</button>
+        <button class="tablink" onclick="openTab('d5', this, ' #999999')">@dateToday.AddDays(4).ToString("MM/dd")</button>
+        <button class="tablink" onclick="openTab('d6', this, ' #999999')">@dateToday.AddDays(5).ToString("MM/dd")</button>
+        <button class="tablink" onclick="openTab('d7', this, ' #999999')">@dateToday.AddDays(6).ToString("MM/dd")</button>
         @*loopar för varje dag och kanal för att fulla med program*@
         <div id="d1" class="tabcontent">
             <ul id="programs" class="list-unstyled col-sm-2">
