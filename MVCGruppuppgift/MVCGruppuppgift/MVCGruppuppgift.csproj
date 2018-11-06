@@ -301,7 +301,6 @@
     <Content Include="Views\news\Delete.cshtml" />
     <Content Include="Views\person\Index.cshtml" />
     <Content Include="Views\person\Register.cshtml" />
-    <Content Include="Views\person\Login.cshtml" />
     <Content Include="Views\person\Welcome.cshtml" />
     <Content Include="Views\person\Details.cshtml" />
     <Content Include="Views\person\Create.cshtml" />
