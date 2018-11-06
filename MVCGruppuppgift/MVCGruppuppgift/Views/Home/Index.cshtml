@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
 }
 <div class="row col-12">
+    @* Detta är en dropdown list *@
     <div id="genreSearchSection" class="col-12">
         @using (Html.BeginForm())
         {
@@ -15,11 +16,12 @@
                 new SelectListItem {Text = "Väder" },
                 new SelectListItem {Text = "Sci-fi" },
                 new SelectListItem {Text = "Sport" },
-                new SelectListItem {Text = "Drama" }                
+                new SelectListItem {Text = "Drama" }
             })
             <input class="btn btn-primary" id="searchGenreButton" type="submit" value="Sök genre" />
         }
     </div>
+    @* Skriver ut antalet dagar *@
     <div class="channels col-8">
         @{ var dateToday = DateTime.Now.Date;
         }
@@ -32,6 +34,7 @@
         <button class="tablink" onclick="openTab('d7', this, ' #999999')">@dateToday.AddDays(6).ToString("MM/dd")</button>
         <div id="d1" class="tabcontent">
             <ul id="programs" class="list-unstyled col-sm-2">
+                @* Loopar här ut kanalerna från DBn *@
                 <img href="https://www.svtplay.se/kanaler/svt1" src="@Url.Content("~/img/SVT1.png")" alt="Ikon för SVT1 saknas" />
                 @foreach (var item in Model)
                 {
@@ -410,7 +413,7 @@
                     {
                         <h1>@Html.ActionLink(p.name, "newsinfo", new { Id = p.programid }) </h1>
                         <h3>@news.information</h3>
-                        <p>@p.date.Value.ToString("yyyy-MM-dd") - @p.time_from</p> 
+                        <p>@p.date.Value.ToString("yyyy-MM-dd") - @p.time_from</p>
                         <hr />
                     }
                 }

@@ -10,8 +10,11 @@ using MVCGruppuppgift.Models;
 
 namespace MVCGruppuppgift.Controllers
 {
+   
     public class personController : Controller
     {
+        //detta är våran person controller där vi lägger in datan som ska vara kopplad till inlogging,redigering
+        // och de personliga inställningarna
         tvdbEntities db = new tvdbEntities();
 
 
@@ -50,6 +53,7 @@ namespace MVCGruppuppgift.Controllers
         }
 
         // GET: person/Details/5
+        //Metod som tar ett ID från dbn. Den kopplar till en view med autogenererad kod.YOLO
         public ActionResult Details(int? id)
         {
             if (id == null)
